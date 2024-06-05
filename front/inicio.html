@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>SPORTY tu Asistente Personal de Entrenamiento</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #E5E5E5;
+        }
+        .content {
+            min-height: calc(100vh - 50px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .footer {
+            width: 100%;
+            height: 50px;
+            background-color: #14213D;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 16px 0;
+            position: relative;
+        }
+
+        .header-container {
+            position: relative;
+            background-color: #FCA311;
+            color: black;
+            padding: 32px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .robot-image {
+            max-height: 100px;
+            margin-right: 20px;
+        }
+        .button {
+            background-color: #FCA311;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .button:hover {
+            background-color: #E5E5E5;
+            color: #14213D;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        .carousel {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .carousel img {
+            max-width: 30%;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            height: 150px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <header class="header-container">
+            <img src="imagenes/sporty.jpg" class="robot-image" alt="Robot Asistente">
+            <div>
+                <h1>SPORTY tu Asistente Personal de Entrenamiento</h1>
+                <p>Optimiza tu rutina de ejercicios y alcanza tus metas con ayuda profesional.</p>
+            </div>
+        </header>
+        <div class="carousel w3-container">
+            <img src="imagenes/Portada.avif" alt="Imagen adicional 1">
+            <img src="imagenes/portada2.avif" alt="Imagen adicional 2">
+            <img src="imagenes/portada3.avif" alt="Imagen adicional 3">
+        </div>
+        <div class="center-container">
+            <a href="usuario.html" class="button">Acceder Usuario</a>
+        </div>
+    </div>
+    <footer class="footer">
+        <h5>¿Listo para empezar? Contáctanos hoy mismo!</h5>
+        <p style="color:black">Página creada por Ligimat Dugarte.</p>
+    </footer>
+    
+</body>
+</html>

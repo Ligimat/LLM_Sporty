@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Usuario - Asistente de Entrenamiento Personal</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E5E5E5;
+        }
+        .w3-container {
+            background-color: #14213D;
+            color: #FFFFFF;
+            text-align: center; /* Centra el texto del encabezado */
+        }
+        .w3-card-4 {
+            background-color: #FFFFFF;
+            color: #000000;
+            margin-top: 20px;
+            padding: 16px;
+        }
+        .w3-form {
+            margin-left: 15px; /* Ajusta según la necesidad para alinear a la izquierda */
+        }
+        .button-container {
+            display: flex;
+            justify-content: center; /* Centra el botón horizontalmente */
+            padding: 20px; /* Añade un poco de padding alrededor del botón */
+        }
+        .w3-btn {
+            background-color: #FCA311;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 24px; /* Añade padding al botón para hacerlo más grande */
+        }
+        .w3-btn:hover {
+            background-color: #14213D; /* Cambia el color en hover */
+        }
+        .w3-input, .w3-select {
+            border: 1px solid #ccc;
+        }
+        label {
+            color: #14213D; /* Color oscuro para las etiquetas */
+            text-align: left; /* Alinea el texto de las etiquetas a la izquierda */
+            display: block; /* Hace que la etiqueta sea un bloque para alinear el texto a la izquierda */
+        }
+    </style>
+</head>
+<body>
+    <div class="w3-container">
+        <h2>Registro de Usuario</h2>
+        <p>Por favor, completa la siguiente información antes de acceder a tu asistente personal.</p>
+    </div>
+
+    <form class="w3-container w3-card-4 w3-padding-16" onsubmit="enviarDatos(); return false;">
+        <p>
+            <label>Nombre</label>
+            <input class="w3-input" type="text" id="nombre" required>
+        </p>
+        <p>
+            <label>Peso (en kg)</label>
+            <input class="w3-input" type="number" id="peso" required>
+        </p>
+        <p>
+            <label>Altura (en cm)</label>
+            <input class="w3-input" type="number" id="altura" required>
+        </p>
+        <p>
+            <label>Género</label>
+            <select class="w3-select" id="genero" required>
+                <option value="" disabled selected>Elige tu género</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select>
+        </p>
+        <p>
+            <label>Tipo de dieta</label>
+            <select class="w3-select" id="tipo_dieta" required>
+                <option value="" disabled selected>Elige el tipo de dieta</option>
+                <option value="vegano">Vegano</option>
+                <option value="vegetariano">Vegetariano</option>
+                <option value="celiaco">Celíaco</option>
+                <option value="bajar_peso">Bajar de peso</option>
+            </select>
+        </p>
+        <div class="button-container">
+            <button type="submit" class="w3-btn">Enviar y Acceder</button>
+        </div>
+    </form>
+
+    <script>
+        function enviarDatos() {
+            const nombre = document.getElementById('nombre').value;
+            const peso = document.getElementById('peso').value;
+            const altura = document.getElementById('altura').value;
+            const genero = document.getElementById('genero').value;
+            const tipoDieta = document.getElementById('tipo_dieta').value;
+
+            fetch('http://localhost:5000/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nombre, peso, altura, genero, tipoDieta })
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = 'http://localhost:8501';
+                    return response.json();
+                }
+                throw new Error('Algo salió mal en el servidor API');
+            })
+            .then(response => {
+                console.debug(response);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        }
+    </script>
+</body>
+</html>

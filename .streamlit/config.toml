@@ -1,0 +1,6 @@
+[theme]
+base="dark"
+primaryColor="#FFFF"  # Color principal usado para elementos interactivos, como botones
+backgroundColor="#14213D"  # Color de fondo general
+secondaryBackgroundColor="#FCA311"  # Color de fondo para componentes secundarios
+textColor="#FFFF"  # Color principal para el texto
